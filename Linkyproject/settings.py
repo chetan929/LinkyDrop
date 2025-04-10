@@ -1,16 +1,18 @@
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n-u*6p=b0z4u0k5set#8_k7!%cl_eo2ne)z3zfy!dk=n8gk2fz'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+# Allow all hosts for Render (you can restrict this in production)
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
 
 # Application definition
 INSTALLED_APPS = [
@@ -20,12 +22,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'linky',  # Your Django app
+    'linky',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 Add this line right after SecurityMiddleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ For serving static files
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -39,12 +41,12 @@ ROOT_URLCONF = 'Linkyproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'linky/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'linky', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # Required for admin and forms
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -54,10 +56,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Linkyproject.wsgi.application'
 
-# Database
-import os
-import dj_database_url
-
+# ✅ Database (uses DATABASE_URL from environment on Render)
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3',
@@ -79,14 +78,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-
-# ✅ Static files (CSS, JavaScript, Images)
+# ✅ Static files (CSS, JS, Images)
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'linky', 'static'),  # Ensure your static files are here
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'linky', 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
