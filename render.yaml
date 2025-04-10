@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: linkyproject
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn Linkyproject.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Linkyproject.settings
+      - key: SECRET_KEY
+        value: your-django-secret-key
+      - key: DEBUG
+        value: False
