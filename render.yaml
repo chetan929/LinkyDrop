@@ -11,3 +11,18 @@ services:
         value: 3.10
       - key: SECRET_KEY
         value: your-secret-key-here
+services:
+  - type: web
+    name: linkyproject
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn Linkyproject.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Linkyproject.settings
+      - key: PYTHON_VERSION
+        value: 3.10
+      - key: SECRET_KEY
+        value: your-secret-key-here
