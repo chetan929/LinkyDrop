@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Support - LinkyDrop</title>
+    <link rel="stylesheet" href="{% static 'css/support-style.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Technical Support</h1>
+        <p>Need help? We're here for you!</p>
+    </header>
+
+    <main>
+        <section class="support">
+            <h2>Common Issues & Solutions</h2>
+
+            <h3>🔗 Problem: Video Not Downloading</h3>
+            <p><strong>Solution:</strong> Ensure the video link is correct and supported. Try refreshing the page and pasting the link again.</p>
+
+            <h3>📂 Problem: Download Button Not Working</h3>
+            <p><strong>Solution:</strong> Disable any ad-blockers or browser extensions that may be interfering with the website.</p>
+
+            <h3>🔒 Problem: Security or Privacy Concerns</h3>
+            <p><strong>Solution:</strong> LinkyDrop does not store any user data. Check our
+                <a href="{% url 'policy' %}">Privacy Policy</a> for details.</p>
+        </section>
+
+        <section class="contact-support">
+            <h2>Contact Support</h2>
+            <p>If your issue isn't listed above, feel free to reach out to us directly at:</p>
+
+            <p><strong>📧 Email:</strong> <a href="mailto:linkydrop@gmail.com">linkydrop@gmail.com</a></p>
+
+            <p>We usually respond within 24–48 hours. Thank you for your patience!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 LinkyDrop | <a href="{% url 'home' %}">Home</a></p>
+    </footer>
+</body>
+
+</html>

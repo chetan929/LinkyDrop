@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Videos - LinkyDrop</title>
+
+    <!-- Link to your Django static CSS file -->
+    <link rel="stylesheet" href="{% static 'css/features.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="container-logo">
+                <div class="logo"></div>
+            </div>
+            <div id="name">
+                <p class="logoname">LinkyDrop</p>
+            </div>
+            <a class="support" href="{% url 'technical-support' %}">
+                <i class="fa-solid fa-headset"></i>Contact Us
+            </a>
+        </div>
+    </header>
+
+    <div class="h1">
+        <h1>How to Download Videos from YouTube</h1>
+    </div>
+
+    <hr class="divider" />
+
+    <main>
+        <section class="instructions">
+            <h2>Step 1: Copy the YouTube Video Link</h2>
+            <p>Go to YouTube, find the video you want to download, and copy its link.</p>
+
+            <h2>Step 2: Paste the Link</h2>
+            <p>Return to LinkyDrop, paste the copied link into the input box.</p>
+
+            <h2>Step 3: Click the Download Button</h2>
+            <p>Press the "Download" button, and the video will be processed.</p>
+
+            <h2>Step 4: Save the Video</h2>
+            <p>Once processed, choose your preferred format and save it to your device.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-section">
+            <p>
+                By using this website, you agree to our
+                <a href="{% url 'terms-service' %}">Terms of Service</a> and
+                <a href="{% url 'policy' %}">Privacy Policy</a>.
+                Unauthorized reproduction or distribution of content is strictly prohibited.
+            </p>
+        </div>
+
+        <div class="footer-container2">
+            <div class="quicklink">
+                <ul>
+                    <li><a href="{% url 'instruction3' %}">How It Works</a></li>
+                    <li><a href="{% url 'policy' %}">Privacy Policy</a></li>
+                    <li><a href="{% url 'terms-service' %}">Terms of Service</a></li>
+                    <li><a href="{% url 'copyright-claims' %}">Copyright Claims</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 LinkyDrop. All rights reserved.</p>
+        </div>
+
+        <p class="footer-credit">
+            <i class="fa-solid fa-user"></i> Created by <span class="creator-name">Chetan Prajapati</span>
+        </p>
+    </footer>
+</body>
+
+</html>

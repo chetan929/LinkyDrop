@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copyright Claims - LinkyDrop</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/policy-style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+{#            <div class="container-logo">#}
+{#                <div class="logo"></div>#}
+{#            </div>#}
+            <div id="name">
+                <p class="logoname">LinkyDrop</p>
+            </div>
+            <a class="support" href="{% url 'technical-support' %}">
+                <i class="fa-solid fa-headset"></i>Contact Us
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="term">
+            <div class="div1">
+                <div class="box1">
+                    <h1>Copyright Claims</h1>
+                    <h3>Last Updated: 27/02/2025</h3>
+                    <p>At LinkyDrop, we respect copyright laws. If you believe your copyrighted content
+                        is being used improperly on our platform, please submit a claim with the following:</p>
+                </div>
+
+                <div class="head2">
+                    <h2 class="h2">What to Include in Your Claim</h2>
+                    <p>‣ Your Contact Information</p>
+                    <p>‣ Description & Link to the Copyrighted Work</p>
+                    <p>‣ Link to the Infringing Content</p>
+                    <p>‣ Statement of Ownership & Good Faith</p>
+                    <p>‣ Your Digital or Physical Signature</p>
+                </div>
+
+                <div class="head2">
+                    <h2 class="h2">How to Submit</h2>
+                    <p>Submit your claim via our <a class="supporta" href="{% url 'technical-support' %}">
+                <i class="fa-solid fa-headset"></i>Contact Us
+                    </a></p><p>We review claims promptly and may remove content. Users can counterclaim if they believe it was removed in error. False claims may result in legal action."</p>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="divider" />
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p>
+                    By using this website, you agree to our
+                    <a href="{% url 'terms' %}">Terms of Service</a> and
+                    <a href="{% url 'policy' %}">Privacy Policy</a>.
+                    Unauthorized reproduction or distribution of content is strictly prohibited.
+                </p>
+            </div>
+
+            <div class="footer-container2">
+                <div class="quicklink">
+                    <ul>
+                        <li><a href="{% url 'policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+                        <li><a href="{% url 'copyright' %}">Copyright Claims</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinkyDrop. All rights reserved.</p>
+            </div>
+            <p class="footer-credit">
+                <i class="fa-solid fa-user"></i> Created by
+                <span class="creator-name">Chetan Prajapati</span>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

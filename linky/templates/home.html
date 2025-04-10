@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkyDrop</title>
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
+
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+    <div class="container-logo">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </div>
+        <div class="logoname">LinkyDrop</div>
+    </div>
+    <a class="support" href="{% url 'technical-support' %}">
+                <i class="fa-solid fa-headset"></i>Contact Us
+    </a>
+</div>
+    </header>
+
+    <main>
+        <div>
+            <div class="logo-container">
+                <a href="{% url 'instruction' %}#instagram" target="_blank" class="log2"></a>
+                <a href="{% url 'instruction2' %}#Facebook" target="_blank" class="log3"></a>
+                <a href="{% url 'instruction3' %}#Youtube" target="_blank" class="log4"></a>
+            </div>
+
+            <div class="line">
+                <h2>Paste the video link below and click download</h2>
+            </div>
+            <div class="container2">
+                <div class="box2">
+                    <input type="text" id="videoUrl" placeholder="Paste video link here..." required />
+                    <button onclick="downloadVideo()">Download</button>
+                </div>
+            </div>
+
+            <p id="error-message"></p>
+            <p id="download-message"></p>
+            <p class="p1">Download your favorite videos easily</p>
+            <p class="p2">Enjoy offline anytime!</p>
+        </div>
+
+        <hr class="divider" />
+        <p class="p3">"Download any video, reel, or short from Instagram, YouTube, and Facebook instantly."</p>
+        <h1 class="head1">LinkyDrop Features</h1>
+        <hr class="divider2" />
+
+        <div class="container3">
+            <div class="left-content">
+                <h2 class="h2"><i class="fa-solid fa-shield-halved"></i> Fast & Secure</h2>
+                <p class="p4">Enjoy quick downloads with a secure and ad-free experience.</p>
+
+                <h2 class="h3"><i class="fa-solid fa-circle-check"></i> User-Friendly Interface</h2>
+                <p class="p5">Just paste the video link and hit download – no complicated steps!</p>
+            </div>
+
+            <div class="right-content">
+                <h2 class="h4"><i class="fa-solid fa-video"></i> High-Quality Downloads</h2>
+                <p class="p6">Save videos in HD & MP4 format for the best viewing experience.</p>
+
+                <h2 class="h5"><i class="fa-solid fa-user"></i> No Sign-Up Required</h2>
+                <p class="p7">Use the tool instantly without any registration or login.</p>
+            </div>
+        </div>
+
+        <div class="center-content">
+            <h2 class="h6"><i class="fa-solid fa-gift"></i> Completely Free</h2>
+            <p class="p8">Download as many videos as you want without any cost.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p>
+                    By using this website, you agree to our
+                    <a href="{% url 'terms-service' %}">Terms of Service</a> and
+                    <a href="{% url 'policy' %}">Privacy Policy</a>.
+                    Unauthorized reproduction or distribution of content is strictly prohibited.
+                </p>
+            </div>
+
+            <div class="footer-container2">
+                <div class="quicklink">
+                    <ul>
+                        <li><a href="{% url 'policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms-service' %}">Terms of Service</a></li>
+                        <li><a href="{% url 'copyright-claims' %}">Copyright Claims</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinkyDrop. All rights reserved.</p>
+            </div>
+            <p class="footer-credit">
+                <i class="fa-solid fa-user"></i> Created by <span class="creator-name">Chetan Prajapati</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

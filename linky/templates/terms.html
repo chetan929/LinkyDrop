@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service - LinkyDrop</title>
+    <link rel="stylesheet" href="{% static 'css/terms-style.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+{#            <div class="container-logo">#}
+{#                <div class="logo"></div>#}
+{##}
+{#            </div>#}
+            <div id="name">
+                <p class="logoname">LinkyDrop</p>
+            </div>
+            <a class="support" href="{% url 'technical-support' %}">
+                <i class="fa-solid fa-headset"></i>Contact Us
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="term">
+            <div class="div1">
+                <div class="box1">
+                    <h1>Terms of Service</h1>
+                    <h3>Last Updated: 26/02/2025</h3>
+                    <p>Welcome to LinkyDrop! By using our website and services, you agree to comply with the following
+                        terms and conditions. If you do not agree, please do not use our service.</p>
+                </div>
+
+                <div class="box2">
+                    <div class="head1">
+                        <h2>1. Use of Service</h2>
+                    </div>
+                    <div class="use">
+                        <p>‣ Our service allows users to download videos from supported platforms for personal use only.</p>
+                        <p>‣ You are responsible for ensuring your use complies with applicable laws and platform terms.</p>
+                        <p>‣ We do not store or distribute copyrighted content.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">2. User Responsibilities</h2>
+                        <p>‣ You agree not to misuse our service for illegal or unauthorized activities.</p>
+                        <p>‣ Do not attempt to modify, hack, or disrupt our website.</p>
+                        <p>‣ You are responsible for any actions taken using our service.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">3. Intellectual Property</h2>
+                        <p>‣ All content, trademarks, and logos on our website belong to their respective owners.</p>
+                        <p>‣ You may not copy, reproduce, or distribute our website’s content without permission.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">4. Limitation of Liability</h2>
+                        <p>‣ We do not guarantee uninterrupted, error-free service.</p>
+                        <p>‣ We are not responsible for any damages, data loss, or legal consequences resulting from the use of our service.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">5. Third-Party Links</h2>
+                        <p>‣ Our website may contain links to third-party sites (e.g., YouTube, Instagram, Facebook).</p>
+                        <p>‣ We are not responsible for their content, privacy policies, or services.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">6. Changes to Terms</h2>
+                        <p>‣ We may update these terms at any time. Changes will be posted on this page.</p>
+                        <p>‣ Continued use of our service after changes means you accept the updated terms.</p>
+                    </div>
+
+                    <div class="head2">
+                        <h2 class="h2">7. Contact Us</h2>
+                        <p>‣ If you have any questions about these Terms of Service, please <a class="support" href="{% url 'technical-support' %}">
+                          <i class="fa-solid fa-headset"></i>Contact Us
+                                                               </a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="divider" />
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p>By using this website, you agree to our <a href="{% url 'terms' %}">Terms of Service</a> and
+                    <a href="{% url 'policy' %}">Privacy Policy</a>. Unauthorized reproduction or distribution of content is strictly prohibited.</p>
+            </div>
+
+            <div class="footer-container2">
+                <div class="quicklink">
+                    <ul>
+                        <li><a href="{% url 'policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+                        <li><a href="{% url 'copyright' %}">Copyright Claims</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinkyDrop. All rights reserved.</p>
+            </div>
+            <p class="footer-credit">
+                <i class="fa-solid fa-user"></i> Created by <span class="creator-name">Chetan Prajapati</span>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
