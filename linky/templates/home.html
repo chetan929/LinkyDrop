@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinkyDrop</title>
 
+    <!-- ✅ Google Site Verification -->
+    <meta name="google-site-verification" content="xfAQMOoRu6QWPpnNsc_JGhYOHIXMfqXnscNjJtXhjsI" />
+
     <!-- Local CSS -->
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
-
-
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -23,16 +24,16 @@
 <body>
     <header>
         <div class="navbar">
-    <div class="container-logo">
-        <div class="logo">
-            <img src="{% static 'img/logo.png' %}" alt="logo">
-        </div>
-        <div class="logoname">LinkyDrop</div>
-    </div>
-    <a class="support" href="{% url 'technical-support' %}">
+            <div class="container-logo">
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="logo">
+                </div>
+                <div class="logoname">LinkyDrop</div>
+            </div>
+            <a class="support" href="{% url 'technical-support' %}">
                 <i class="fa-solid fa-headset"></i>Contact Us
-    </a>
-</div>
+            </a>
+        </div>
     </header>
 
     <main>
