@@ -5,9 +5,9 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Use dev-friendly defaults if env vars are not set
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'  # ✅ Default is True for local dev
-SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev')
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'  # ✅ Default is False for production
+SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev')  # Use a real secret key in production
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'linkydrop-ewha.onrender.com').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,7 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'linky',
+    'linky',  # Your app name
 ]
 
 MIDDLEWARE = [
@@ -53,25 +53,45 @@ WSGI_APPLICATION = 'Linkyproject.wsgi.application'
 # Database
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
+        default=os.environ.get('DATABASE_URL', 'sqlite:///db.sqlite3'),
         conn_max_age=600
     )
 }
 
-AUTH_PASSWORD_VALIDATORS = []
+# Password validation
+AUTH_PASSWORD_VALIDATORS = [
+    # Optional, but good to have in production:
+    # 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # 'django.contrib.auth.password_validation.NumericPasswordValidator',
+]
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ Static Files
+# Static files
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'linky', 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Only use whitenoise storage in production
+# Static files handling in production
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security settings
+SECURE_SSL_REDIRECT = not DEBUG  # Redirect all HTTP to HTTPS in production
+CSRF_COOKIE_SECURE = not DEBUG  # Use secure cookies in production
+SESSION_COOKIE_SECURE = not DEBUG  # Use secure cookies in production
+X_FRAME_OPTIONS = 'DENY'  # Security best practice
+
+# For using the `django-environ` package or similar for environment variables:
+# Make sure to set environment variables on Render for:
+# - SECRET_KEY
+# - DATABASE_URL
+# - ALLOWED_HOSTS
+# - DEBUG (False for production)
