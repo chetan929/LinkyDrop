@@ -7,7 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Use dev-friendly defaults if env vars are not set
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'  # Default is False for production
 SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev')  # Set a real secret key in production
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'linkydrop.onrender.com').split(',')
+ALLOWED_HOSTS = ['linkydrop.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 INSTALLED_APPS = [
