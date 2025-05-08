@@ -9,9 +9,6 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'  # Default is False for produ
 SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-key-for-dev')  # Set a real secret key in production
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'linkydrop.onrender.com').split(',')
 
-
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,10 +61,10 @@ DATABASES = {
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     # Optional, but good to have in production:
-    # 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    # 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    # 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    # 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    'django.contrib.auth.password_validation.MinimumLengthValidator',
+    'django.contrib.auth.password_validation.CommonPasswordValidator',
+    'django.contrib.auth.password_validation.NumericPasswordValidator',
 ]
 
 LANGUAGE_CODE = 'en-us'
@@ -92,9 +89,19 @@ CSRF_COOKIE_SECURE = not DEBUG  # Use secure cookies in production
 SESSION_COOKIE_SECURE = not DEBUG  # Use secure cookies in production
 X_FRAME_OPTIONS = 'DENY'  # Security best practice
 
+# Email settings (for handling error emails in production)
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
+    EMAIL_PORT = os.environ.get('EMAIL_PORT', 587)
+    EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'your-email@example.com')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'your-email-password')
+
 # For using the `django-environ` package or similar for environment variables:
 # Make sure to set environment variables on Render for:
 # - SECRET_KEY
 # - DATABASE_URL
 # - ALLOWED_HOSTS
 # - DEBUG (False for production)
+# - EMAIL_HOST, EMAIL_PORT, EMAIL_USE_TLS, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD (if sending email)
