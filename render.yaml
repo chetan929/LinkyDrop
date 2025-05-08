@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: linkydrop
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn Linkyproject.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Linkyproject.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DEBUG
+        value: False
+      - key: SECRET_KEY
+        value: 0hc9uulpcsd6kfeegzpnh_-bhf2px1$aq^i9_90zf$^%8(b%!3
+      - key: ALLOWED_HOSTS
+        value: linkydrop.onrender.com
+      # Uncomment the next line if you're using a Render PostgreSQL database
+      # - key: DATABASE_URL
+      #   fromDatabase:
+      #     name: your-database-name
+      #     property: connectionString
