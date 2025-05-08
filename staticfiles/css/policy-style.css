@@ -1,0 +1,229 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+.navbar {
+    height: 50px;
+    width: 100%;
+    color: white;
+    display: flex;
+}
+
+.container-logo {
+    height: 50px;
+    width: 100px;
+}
+
+/* Logo image */
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logoname {
+    font-size: x-large;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    margin-left: 5px;
+    margin-bottom: 2px;
+    color: white;
+
+    /* Animation styles */
+    animation: slideFade 1.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+@keyframes slideFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.support {
+    color: white;
+    text-align: right;
+    width: 84%;
+    margin-top: 1.6rem;
+}
+
+
+.support {
+    color: white;
+    text-align: right;
+    width: 84%;
+    margin-top: 1.6rem;
+}
+
+
+
+.support i {
+    color: #e3eaf0;
+    margin-right: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+/* BOX1 */
+.box1 {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* BOX2 */
+.box2 {
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.box2 p {
+    font-size: medium;
+}
+
+.p2 {
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.head1,
+.head2 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.head1 {
+    margin-top: 10px;
+}
+
+.head2 {
+    margin-top: 50px;
+}
+
+.head2 a{
+    margin-right: 50%;
+}
+
+
+
+.head1 h2,
+.head1 p,
+.head2 h2,
+.head2 p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.checklist,
+.use {
+    list-style: none;
+    padding-left: 0;
+}
+
+.checklist p,
+.use p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.divider {
+    width: 80%;
+    margin: 30px auto 10px;
+    border: none;
+    height: 1px;
+    background-color: #08121b;
+    opacity: 0.7;
+}
+
+footer {
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.footer-section {
+    font-size: large;
+}
+
+.footer-section a {
+    color: black;
+    text-decoration: none;
+}
+
+.quicklink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.quicklink ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.quicklink a {
+    color: #6c6c6c;
+    text-decoration: none;
+}
+
+.quicklink a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.footer-bottom {
+    font-size: medium;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-credit {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00070e;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.creator-name {
+    font-family: "Brush Script MT", "Brush Script Std", cursive;
+}
